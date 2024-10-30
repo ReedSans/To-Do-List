@@ -1,0 +1,130 @@
+    /* GENERAL */
+
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      background-color:thistle;
+    }
+
+    /* TO-DO LIST APPLICATION */
+    #app-frame {
+      width: 300px;
+      margin: 50px auto;
+      background-color: #ffffff;
+      border: 2px solid black;
+      border-radius: 15px;
+    }
+
+    /* APP HEADER */
+    header h2 {
+      text-align: center;
+    }
+
+    /* ADD NEW TASKS SECTION */
+    #new-task form {
+      margin: 10px 0;
+    }
+
+    #new-task form label {
+      display: block;
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    #new-task form input {
+      width: 100%;
+      padding: 10px 15px;
+      border: 2px solid black;
+      border-radius: 7px;
+      margin-bottom: 15px;
+    }
+
+    #new-task button {
+      width: 100%;
+      padding: 10px 15px;
+      border-radius: 7px;
+      background-color: #000000;
+      color: #ffffff;
+      font-weight: 700;
+      transition: 0.2s ease-in-out;
+    }
+
+    #new-task button:hover {
+      background-color: #888888;
+      color: #000000;
+    }
+
+    /* MY TASKS SECTION */
+    #pending h6 {
+      opacity: 0.7;
+    }
+
+    #pending .pending-task {
+      margin-top: 10px;
+      padding: 5px;    
+      border: 2px solid black; 
+      border-radius: 7px; 
+      display: grid;
+      grid-template-columns: 20px 1fr 20px;
+      gap: 15px;
+      align-items: start;
+    }
+
+    /* TASK checkbox */
+    #pending .pending-task input {
+      margin-top: 8px;
+      cursor: pointer;
+      accent-color: #666;
+    }
+    
+    /* TASK information */
+    #pending .task-header {
+      padding: 0;
+      margin-top: 3px;
+      margin-bottom: 10px;
+    }
+
+    #pending .task-desc {
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+    
+    #pending .task-due {
+      color: red;
+      font-size: 11px;
+    }
+    
+    /* TASK delete icon */
+    #pending .pending-task i {
+      margin-top: 5px;
+      font-size: larger;
+      cursor: pointer;
+    }
+    
+    #pending .pending-task input:checked + .task-info .task-header {
+      text-decoration: line-through; /* Responsible for crossing out the task header when box is checked */
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      font-weight: 400;
+      opacity: 0.7;
+    }
+
+    /* UTILITY CLASSES */
+    .container {
+      width: 90%;
+      margin: 10px auto 20px;
+      padding: 5px;
+    }

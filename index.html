@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/styles.css" type="text/css">
+  <title>To-do List</title>
+</head>
+<body>
+    <!-- TO-DO LIST APP -->
+  <div id="app-frame">
+
+        <!-- APP HEADER -->
+    <header>
+      <div class="container">
+        <h2>To-Do List</h2>
+      </div>
+    </header>
+
+        <!-- ADD NEW TASKS -->
+    <section id="new-task">
+      <div class="container">        
+        <h3>Add Task</h3>
+        <form>
+          <p>
+            <label for="txtTitle">Title</label>
+            <input type="text" id="txtTitle" placeholder="Enter a title..." required>
+          </p>
+          <p>
+            <label for="txtDescripton">Description (Optional)</label>
+            <input type="text" id="txtDescripton" placeholder="Enter a description...">
+          </p>
+          <p>
+            <label for="deadline">Deadline</label>
+            <input type="date" id="deadline" required>
+          </p>
+          <button type="button">Add Task</button>
+        </form>        
+      </div>
+    </section>
+
+        <!-- MY TASKS -->
+    <section id="pending">
+      <div class="container">
+        <h3>My Tasks</h3>
+        <h6>*Check the box to complete a task</h6>
+
+        <!-- TASKS HOLDER -->
+        <ul id="task-holder">
+          <!-- <li class="pending-task">
+            <input type="checkbox" name="" id="">
+            <div class="task-info">
+              <h4 class="task-header">Calculus Homework</h4>
+              <p class="task-desc">Do questions 1 and 2 of the exercise</p>
+              <span class="task-due">Due 5 Nov 2024</span>
+            </div>
+            <i class="fas fa-trash"></i>
+          </li> -->
+        </ul>
+      </div>
+    </section>
+
+        <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <h6>Made with <i class="fas fa-heart"></i> by Fareed & Tee</h6>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
+
+
+
