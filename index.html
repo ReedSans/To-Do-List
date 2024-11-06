@@ -22,20 +22,20 @@
     <section id="new-task">
       <div class="container">        
         <h3>Add Task</h3>
-        <form>
+        <form id="task-form">
           <p>
             <label for="txtTitle">Title</label>
             <input type="text" id="txtTitle" placeholder="Enter a title..." required>
           </p>
           <p>
-            <label for="txtDescripton">Description (Optional)</label>
-            <input type="text" id="txtDescripton" placeholder="Enter a description...">
+            <label for="txtDescription">Description (Optional)</label>
+            <input type="text" id="txtDescription" placeholder="Enter a description...">
           </p>
           <p>
             <label for="deadline">Deadline</label>
             <input type="date" id="deadline" required>
           </p>
-          <button type="button">Add Task</button>
+          <button type="submit">Add Task</button>
         </form>        
       </div>
     </section>
@@ -49,11 +49,11 @@
         <!-- TASKS HOLDER -->
         <ul id="task-holder">
           <!-- <li class="pending-task">
-            <input type="checkbox" name="" id="">
+            <input type="checkbox" name="" id="chkTask">
             <div class="task-info">
               <h4 class="task-header">Calculus Homework</h4>
               <p class="task-desc">Do questions 1 and 2 of the exercise</p>
-              <span class="task-due">Due 5 Nov 2024</span>
+              <span class="task-due">Due Nov 5 2024</span>
             </div>
             <i class="fas fa-trash"></i>
           </li> -->
@@ -68,6 +68,8 @@
       </div>
     </footer>
   </div>
+
+  <script src="./js/main.js"></script>
 </body>
 </html>
 
