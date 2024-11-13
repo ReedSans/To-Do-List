@@ -22,6 +22,9 @@
       background-color: #ffffff;
       border: 2px solid black;
       border-radius: 15px;
+      position: relative;
+      height: 550px;
+      overflow: hidden;
     }
 
     /* APP HEADER */
@@ -30,8 +33,39 @@
     }
 
     /* ADD NEW TASKS SECTION */
+    #new-task {
+      /* display: none; */
+      width: 100%;
+      height: 70%;
+      position: absolute;
+      top: 650px;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 -10px 12px -8px #ccc;
+      transition: top 0.5s ease-in-out;
+      z-index: 1;
+    }
+
+    #new-task.open {
+      top: 70px;
+    }
+
+    #new-task div:first-child {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    #new-task div img {
+      width: 17px;
+      height: 17px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
     #new-task form {
-      margin: 10px 0;
+      margin: 0;
     }
 
     #new-task form label {
@@ -66,6 +100,29 @@
     /* MY TASKS SECTION */
     #pending h6 {
       opacity: 0.7;
+    }
+
+    #pending .container > div {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #pending button {
+      width: 45%;
+      padding: 5 15px;
+      border-radius: 10px;
+      background-color: #000000;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transform: scale(0.9);
+      transition: 0.2s ease-in-out;
+    }
+
+    #pending #task-holder {
+      height: 350px;
+      overflow: scroll;
     }
 
     #pending .pending-task {
@@ -116,7 +173,6 @@
 
     /* FOOTER */
     footer {
-      margin-top: 50px;
       text-align: center;
       font-weight: 400;
       opacity: 0.7;
