@@ -21,7 +21,7 @@
         <div class="task-info">
           <h4 class="task-header">${task.title}</h4>
           <p class="task-desc">${task.description}</p>
-          <span class="task-due">${dateFormatter(task.deadline)}</span>
+          <span class="task-due">Due ${dateFormatter(task.deadline)}</span>
         </div>
         <i class="fas fa-trash"></i>
       </li>
