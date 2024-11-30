@@ -1,5 +1,39 @@
   // -----FUNCTIONS-----  
 
+  // ---CREATE A TASK
+  function createTask(e){
+    e.preventDefault();
+
+    const taskTitle = document.getElementById('txtTitle');
+    const taskDesc = document.getElementById('txtDescription');
+    const taskDeadline = document.getElementById('deadline');
+
+    // CREATE TASK OBJECT
+    const task = {
+      title: taskTitle.value,
+      description: taskDesc.value,
+      deadline: taskDeadline.value,
+    }
+
+    itemList.innerHTML += `
+      <li class="pending-task">
+        <input type="checkbox" name="" id="chkTask">
+        <div class="task-info">
+          <h4 class="task-header">${task.title}</h4>
+          <p class="task-desc">${task.description}</p>
+          <span class="task-due">${dateFormatter(task.deadline)}</span>
+        </div>
+        <i class="fas fa-trash"></i>
+      </li>
+    `
+
+    window.alert(`'${task.title}' has been added to tasks`);
+
+    taskTitle.value = taskDesc.value = taskDeadline.value = ''
+    // clearFields(task);  
+    updateTasks();
+  }
+
   // -----FORMAT THE DATE FROM THE DEADLINE FIELD
   function dateFormatter(someDate){
 
@@ -10,28 +44,14 @@
     
     return betterDate.replaceAll(",", "");
   }
-
-  // ---DELETE A TASK
-  function deleteTask(e){
-    if (e.target.classList.contains('fa-trash')){
-      if (window.confirm('Delete this task?')){
-        e.target.parentElement.remove();
-        updateTasks();
-      }
-    } 
-  }  
   
-  // ---CLEAR ALL FIELDS AFTER SUBMISSION
-  function clearFields(){  
-    const taskTitle = document.getElementById('txtTitle');
-    const taskDesc = document.getElementById('txtDescription');
-    const taskDeadline = document.getElementById('deadline');
-
-    taskTitle.value = "";
-    taskDesc.value = "";
-    taskDeadline.value = "";
-  } 
-
+  // // ---CLEAR ALL FIELDS AFTER SUBMISSION
+  // function clearFields(task){
+  //   task.title.value = "";
+  //   task.description.value = "";
+  //   task.deadline.value = "";
+  // } 
+  
   // ---UPDATE REMAINING TASKS
   function updateTasks () {
     const tasksLeft = Array.from(itemList.querySelectorAll('.pending-task input')).filter(chkBox => !chkBox.checked).length;
@@ -43,57 +63,16 @@
     }
   }
 
-  // ---CREATE A TASK
-  function createTask(e){
-    e.preventDefault();
-    
-    const taskTitle = document.getElementById('txtTitle');
-    const taskDesc = document.getElementById('txtDescription');
-    const taskDeadline = document.getElementById('deadline');
+  // ---DELETE A TASK
+  function deleteTask(e){
+    if (e.target.classList.contains('fa-trash')){
+      if (window.confirm('Delete this task?')){
+        e.target.parentElement.remove();
+        updateTasks();
+      }
+    } 
+  }   
 
-    // -----CREATE h4 AND APPEND VALUE FROM THE TITLE
-    const header = document.createElement('h4');
-    header.innerHTML = (taskTitle.value);
-    header.className = 'task-header';
-
-    // -----CREATE p AND APPEND VALUE FROM THE DESCRIPTION
-    const paragraph = document.createElement('p');
-    paragraph.innerHTML = (taskDesc.value);
-    paragraph.className = 'task-desc';
-
-    // -----CREATE span AND APPEND VALUE FROM THE DEADLINE
-    const dueDate = document.createElement('span');
-    dueDate.innerHTML = (`Due ${dateFormatter(taskDeadline.value)}`);
-    dueDate.className = 'task-due';
-    
-    
-    // -----NOW CREATE div, ADD CLASS & APPEND h4, p & span
-    const taskDetails = document.createElement('div');
-    taskDetails.className = 'task-info';
-    taskDetails.append(header, paragraph, dueDate);
-
-    // -----CREATE checkbox input 
-    const chkBox = document.createElement('input');
-    chkBox.setAttribute('type', 'checkbox');
-    chkBox.addEventListener('change', updateTasks);
-
-    // -----CREATE TRASH CAN icon
-    const trashBtn = document.createElement('icon');
-    trashBtn.className = 'fas fa-trash';
-
-    // -----CREATE THE li, ADD STYLE & APPEND checkbox, div & icon
-    const listItem = document.createElement('li');
-    listItem.className = 'pending-task';
-    listItem.append(chkBox, taskDetails, trashBtn);
-
-    // -----NOW APPEND listItem TO THE EXISTING ul
-    itemList.append(listItem);
-
-    window.alert(`'${header.innerHTML}' has been added to tasks`);
-
-    clearFields();  
-    updateTasks();
-  }
   
   // -----DOM MANIPULATION------  
   
@@ -102,23 +81,28 @@
   const submitForm = document.getElementById('task-form');
   const itemList = document.getElementById('task-holder');
 
+  // SPAN FOR READING REMAINING TASKS
   const remainingTasks = document.querySelector('#rem-tasks');
 
+  // TOGGLE BUTTON FOR ADD-TASKS MODAL
+  const openBtn = document.getElementById('open-modal');
+  const closeBtn = document.getElementById('close-modal');
   
+  // ADD-TASKS MODAL
+  const addTaskModal = document.getElementById('new-task');
+
+
   // ---EVENT LISTENERS 
   submitForm.addEventListener('submit', createTask);
   
   itemList.addEventListener('click', deleteTask);
+  itemList.addEventListener('change', updateTasks);
  
+  openBtn.addEventListener('click', () => addTaskModal.classList.add('open'))
+  closeBtn.addEventListener('click', () => addTaskModal.classList.remove('open'))
   updateTasks();
 
-  // TOGGLE BUTTON FOR ADDING TASKS
-  const addTaskMenu = document.getElementById('new-task');
-  const openBtn = document.getElementById('open-form');
-  const closeBtn = document.getElementById('close-form');
 
-  openBtn.addEventListener('click', () => { addTaskMenu.classList.add('open'); })
-  closeBtn.addEventListener('click', () => { addTaskMenu.classList.remove('open'); })
 
   
   
